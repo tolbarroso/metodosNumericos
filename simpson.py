@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
 def simpson_integration(f, a, b, n):
     h = (b - a) / n
     x = np.linspace(a, b, n+1)
@@ -16,8 +20,6 @@ def simpson_integration(f, a, b, n):
     return integral
 
 # Exemplo de uso
-import math
-
 f = math.sin
 a = 0
 b = math.pi
@@ -25,3 +27,15 @@ n = 100
 
 integral_value = simpson_integration(f, a, b, n)
 print(f"Integral de sin(x) de {a} a {b}: {integral_value}")
+
+# Plot do gráfico
+x = np.linspace(a, b, n+1)
+y = f(x)
+
+plt.plot(x, y, label='sin(x)')
+plt.fill_between(x, y, color='skyblue', alpha=0.4)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Integração de sin(x) usando Simpson')
+plt.legend()
+plt.show()

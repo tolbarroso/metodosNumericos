@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def trapezoidal_interpolation(x, y, xi):
     n = len(x)
@@ -20,3 +21,12 @@ xi = 2.5
 
 interp_value = trapezoidal_interpolation(x, y, xi)
 print(f"Interpolação no ponto {xi}: {interp_value}")
+
+# Plot do gráfico
+plt.plot(x, y, 'o', label='Pontos')
+plt.plot(xi, interp_value, 'ro', label='Interpolação')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interpolação Trapezoidal')
+plt.legend()
+plt.show()
